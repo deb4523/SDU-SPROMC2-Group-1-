@@ -1,10 +1,10 @@
 /*
- * Test Task 1.c
+ * spro2mc.c
  *
- * Created: 01-Nov-19 10:29:52 AM
+ * Created: Feb 20 10:29:52 AM
  * Author : Deborah Curtis
  */ 
-#define F_CPU 16000000UL					//defines the frequency of the CPU
+#define F_CPU 16000000UL						//defines the frequency of the CPU
 
 //include standard libraries
 #include <stdio.h>
@@ -13,7 +13,7 @@
 
 //include user libraries
 #include "i2cmaster.h" 
-#include "usart.h"							//to output to realterm or sdu terminal 
+#include "usart.h"								//to output to realterm or sdu terminal 
 
 void turn_right(void);
 void turn_left(void);
@@ -25,16 +25,16 @@ void steppermotor(int);
 
 int main(void)
 {
-	i2c_init();								//initialize the communication for I2C
+	i2c_init();									//initialize the communication for I2C
 	uart_init();
 	io_redirect();
 	
 	
 	//configuring buttons
-	DDRB = 0xFF;							//configure port b as output port
-	PORTB = 0x00;							//output 0 on port b
-	DDRD = 0xFF;							//configure port b as output port
-	PORTD = 0x00;							//output 0 on port b
+	DDRB = 0xFF;								//configure port b as output port
+	PORTB = 0x00;								//output 0 on port b
+	DDRD = 0xFF;								//configure port b as output port
+	PORTD = 0x00;								//output 0 on port b
 	
 	int runtime = 5;
 	go();										//starts motor goes straight
